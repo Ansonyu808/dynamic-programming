@@ -39,4 +39,3 @@ def grid_traveler(m, n, memo = {}):
 
 # print('grid_traveller_old', grid_traveler_old(18, 18))
 # print('grid_traveller', grid_traveler(18, 18))
-
