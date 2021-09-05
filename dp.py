@@ -11,8 +11,8 @@ def fib(n, mem = {}):
     mem[n] = fib(n-1, mem) + fib(n-2, mem)
     return mem[n]
 
-print('fib_old', fib_old(50))
-print('fib', fib(50))
+# print('fib_old', fib_old(50))
+# print('fib', fib(50))
 
 def grid_traveler_old(m, n):
     if m == n == 2:
@@ -38,4 +38,5 @@ def grid_traveler(m, n, memo = {}):
     return memo[m,n]
 
 # print('grid_traveller_old', grid_traveler_old(18, 18))
-print('grid_traveller', grid_traveler(18, 18))
+# print('grid_traveller', grid_traveler(18, 18))
+
