@@ -31,3 +31,24 @@ print(best_sum(7, [5, 3, 4, 7], memo.copy()))
 print(best_sum(8, [2, 3, 5], memo.copy()))
 print(best_sum(8, [1, 4, 5], memo.copy()))
 print(best_sum(100, [1, 2, 25], memo.copy()))
+
+
+def best_sum_tab(target_sum, numbers):
+    dp = [None for _ in range(target_sum + 1)]
+    dp[0] = []
+
+    for i in range(target_sum + 1):
+        for number in numbers:
+            if dp[i] == None or i + number not in range(target_sum + 1):
+                continue
+            one_sum = dp[i] + [number]
+            if dp[i + number] == None or len(dp[i + number]) > len(one_sum):
+                dp[i + number] = one_sum
+
+    return dp[target_sum]
+
+
+print(best_sum_tab(7, [5, 3, 4, 7]))
+print(best_sum_tab(8, [2, 3, 5]))
+print(best_sum_tab(8, [1, 4, 5]))
+print(best_sum_tab(100, [1, 2, 25]))

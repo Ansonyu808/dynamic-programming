@@ -43,3 +43,29 @@ print(
         memo.copy(),
     )
 )
+
+
+def can_construct_tab(target, word_bank):
+    dp = [False for _ in range(len(target) + 1)]
+    dp[0] = True
+
+    for i in range(len(target) + 1):
+        for word in word_bank:
+            if dp[i] == False or len(word) + i > len(target) + 1:
+                continue
+            if target[i : len(word) + i] == word:
+                dp[len(word) + i] = True
+    return dp[len(target)]
+
+
+print()
+print()
+print(can_construct_tab("abcdef", ["ab", "abc", "def", "abcd"]))
+print(can_construct_tab("skateboard", ["bo", "rd", "ate", "t", "ska", "sk", "boar"]))
+print(can_construct_tab("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"]))
+print(
+    can_construct_tab(
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+        ["e", "ee", "eee", "eeee", "eeeeeee"],
+    )
+)

@@ -38,3 +38,29 @@ print(
         memo.copy(),
     )
 )
+
+
+def count_construct_tab(target, word_bank):
+    dp = [0 for i in range(len(target) + 1)]
+    dp[0] = 1
+
+    for i in range(len(target) + 1):
+        if dp[i] < 1:
+            continue
+        for word in word_bank:
+            if target[i : len(word) + i] == word:
+                dp[len(word) + i] += dp[i]
+    return dp[i]
+
+
+print(count_construct_tab("abcdef", ["ab", "abc", "def", "abcd"]))
+print(count_construct_tab("purple", ["purp", "p", "ur", "le", "purpl"]))
+print(
+    count_construct_tab("enterapotentpot", ["a", "p", "ent", "enter", "ot", "o", "t"])
+)
+print(
+    count_construct_tab(
+        "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+        ["e", "ee", "eee", "eeee", "eeeeeee"],
+    )
+)
